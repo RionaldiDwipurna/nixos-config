@@ -32,6 +32,9 @@
       fi
     '';
   };
+  programs.fastfetch = {
+    enable = true;
+  };
 
 
 

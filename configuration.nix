@@ -26,6 +26,24 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  services.resolved = {
+    enable = true;
+
+    dnssec = "true";
+    dnsovertls = "true";
+
+    domains = [ "~." ];
+
+    fallbackDns = [
+      "1.1.1.1#one.one.one.one"
+      "1.0.0.1#one.one.one.one"
+      "2606:4700:4700::1111#one.one.one.one"
+      "2606:4700:4700::1001#one.one.one.one"
+    ];
+  };
+
+  networking.nameservers = [ "127.0.0.53" ];
+  networking.networkmanager.dns = "systemd-resolved";
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
