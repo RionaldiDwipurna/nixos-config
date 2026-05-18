@@ -42,7 +42,6 @@
     ];
   };
 
-  networking.nameservers = [ "127.0.0.53" ];
   networking.networkmanager.dns = "systemd-resolved";
 
   # Set your time zone.
