@@ -105,6 +105,13 @@
   programs.zsh.enable = true;
   users.users.rdwp.shell = pkgs.zsh;
 
+  # zram config
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 100;
+    priority = 100;
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
