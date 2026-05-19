@@ -25,6 +25,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  hardware.enableAllFirmware = true;
   networking.networkmanager.enable = true;
   services.resolved = {
     enable = true;
@@ -83,6 +84,14 @@
     waybar
     git
     hyprpaper
+  ];
+
+  fonts.packages = with pkgs; [
+    font-awesome
+    nerd-fonts.symbols-only
+    nerd-fonts.jetbrains-mono
+    noto-fonts
+    noto-fonts-color-emoji
   ];
 
   # graphics and nvidia settings

@@ -13,7 +13,37 @@ in
   home.username = "rdwp";
   home.homeDirectory = "/home/rdwp";
   home.stateVersion = "25.11";
+  home.packages = with pkgs; [
+    # Waybar ecosystem
+    waybar
+  
+    # Audio
+    pamixer
+    pavucontrol
+  
+    # Network manager GUI
+    networkmanagerapplet
+  
+    # Notifications
+    swaynotificationcenter
+  
+    swayosd
+    rofi
 
+    # Screenshot tools
+    grim
+    slurp
+    wl-clipboard
+    cliphist
+
+    # finder
+    fzf
+    ripgrep
+    fd
+
+    # file manager
+    thunar
+  ];
   programs.git = {
     enable = true;
     settings = {
