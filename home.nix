@@ -43,6 +43,15 @@ in
 
     # file manager
     thunar
+
+    # neovim related
+    neovim
+    git
+    gcc
+    nodejs
+    unzip
+    curl
+
   ];
   programs.git = {
     enable = true;
