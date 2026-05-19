@@ -84,6 +84,7 @@
     waybar
     git
     hyprpaper
+    feh
   ];
 
   fonts.packages = with pkgs; [
