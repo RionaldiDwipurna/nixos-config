@@ -19,12 +19,12 @@ return {
         'folke/tokyonight.nvim',
     },
 
-    -- Hop (Better Navigation)
+    -- Flash (Modern Hop replacement)
     {
-        "phaazon/hop.nvim",
-        lazy = true,
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {},
     },
-
 
     -- Lualine
     {
@@ -42,8 +42,8 @@ return {
         dependencies = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            {'mason-org/mason.nvim'},           -- Optional
+            {'mason-org/mason-lspconfig.nvim'}, -- Optional
 
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},         -- Required

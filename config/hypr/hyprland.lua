@@ -257,6 +257,7 @@ hl.device({
 ---------------------
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local step = 20
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -286,6 +287,12 @@ hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
+
+-- resize tile
+hl.bind("SUPER + ALT + H", hl.dsp.window.resize({ x = -step, y = 0, relative = true }),{ repeating = true })
+hl.bind("SUPER + ALT + L", hl.dsp.window.resize({ x = step,  y = 0, relative = true }),{ repeating = true })
+hl.bind("SUPER + ALT + K", hl.dsp.window.resize({ x = 0, y = -step, relative = true }),{ repeating = true })
+hl.bind("SUPER + ALT + J", hl.dsp.window.resize({ x = 0, y = step,  relative = true }),{ repeating = true })
 
 -- move focus window in direction
 hl.bind(mainMod .. " + SHIFT + H",  hl.dsp.window.move({ direction = "left" }))
