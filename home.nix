@@ -7,6 +7,7 @@ let
     hypr = "hypr";
     nvim = "nvim";
     waybar = "waybar";
+    kitty = "kitty";
   };
 in
 {
@@ -51,6 +52,7 @@ in
     nodejs
     unzip
     curl
+    tree-sitter
 
   ];
   programs.git = {

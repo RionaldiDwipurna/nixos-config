@@ -19,3 +19,8 @@
 --
 -- -- rustaceanvim
 -- vim.keymap.set("n", "<Leader>nt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
+--
+--
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Goto References" })

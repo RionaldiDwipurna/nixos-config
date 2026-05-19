@@ -92,6 +92,7 @@
     nerd-fonts.jetbrains-mono
     noto-fonts
     noto-fonts-color-emoji
+    fantasque-sans-mono
   ];
 
   # graphics and nvidia settings
