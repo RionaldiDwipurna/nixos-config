@@ -95,6 +95,17 @@
       background = "${./assets/pictures/bluewall1.jpg}";
       loginBackground = true;
     })
+
+    #gaming related
+    mangohud
+    protonup-qt
+    # lutris
+    # bottles
+    # heroic # for epic/gog
+
+    # debugging tools for graphics
+    vulkan-tools
+    mesa-demos
   ];
 
   fonts.packages = with pkgs; [
@@ -122,13 +133,29 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
+  # steam/gaming related
+  programs.steam = {
+    enable = true;
+    # for stream 
+    # remotePlay.openFirewall = true;
+
+    # for host server
+    # dedicatedServer.openFirewall = false;
+  };
+
+  programs.gamescope = {
+    enable = true;
+  };
+  
+  programs.gamemode.enable = true;
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
 
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    LIBRA_DRIVER_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
   };
   # hyprlock
   programs.hyprlock.enable = true;
