@@ -29,20 +29,21 @@
   networking.networkmanager.enable = true;
   services.resolved = {
     enable = true;
-
-    dnssec = "true";
-    dnsovertls = "true";
-
-    domains = [ "~." ];
-
-    fallbackDns = [
-      "1.1.1.1#one.one.one.one"
-      "1.0.0.1#one.one.one.one"
-      "2606:4700:4700::1111#one.one.one.one"
-      "2606:4700:4700::1001#one.one.one.one"
-    ];
+  
+    settings.Resolve = {
+      DNSSEC = "true";
+      DNSOverTLS = "true";
+  
+      Domains = [ "~." ];
+  
+      FallbackDNS = [
+        "1.1.1.1#one.one.one.one"
+        "1.0.0.1#one.one.one.one"
+        "2606:4700:4700::1111#one.one.one.one"
+        "2606:4700:4700::1001#one.one.one.one"
+      ];
+    };
   };
-
   networking.networkmanager.dns = "systemd-resolved";
 
   # Set your time zone.
@@ -85,6 +86,15 @@
     git
     hyprpaper
     feh
+    pstree
+    (catppuccin-sddm.override {
+      flavor = "frappe";
+      accent = "sapphire";
+      font  = "Noto Sans";
+      fontSize = "9";
+      background = "${./assets/pictures/bluewall1.jpg}";
+      loginBackground = true;
+    })
   ];
 
   fonts.packages = with pkgs; [
@@ -125,9 +135,12 @@
   security.pam.services.hyprlock = {};
 
   # sddm
+  services.xserver.enable = true;
   services.displayManager.sddm = {
-    enable=true;
-    wayland.enable=true;
+    enable = true;
+    theme = "catppuccin-frappe-sapphire";
+    package = pkgs.kdePackages.sddm;
+    wayland.enable = false;
   };
 
   programs.zsh.enable = true;
