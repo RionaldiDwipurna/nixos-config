@@ -8,6 +8,7 @@ let
     nvim = "nvim";
     waybar = "waybar";
     kitty = "kitty";
+    btop = "btop";
   };
 in
 {
