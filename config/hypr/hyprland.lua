@@ -290,10 +290,10 @@ hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 
 -- resize tile
-hl.bind("SUPER + ALT + H", hl.dsp.window.resize({ x = -step, y = 0, relative = true }),{ repeating = true })
-hl.bind("SUPER + ALT + L", hl.dsp.window.resize({ x = step,  y = 0, relative = true }),{ repeating = true })
-hl.bind("SUPER + ALT + K", hl.dsp.window.resize({ x = 0, y = -step, relative = true }),{ repeating = true })
-hl.bind("SUPER + ALT + J", hl.dsp.window.resize({ x = 0, y = step,  relative = true }),{ repeating = true })
+hl.bind(mainMod .. " + ALT + H", hl.dsp.window.resize({ x = -step, y = 0, relative = true }),{ repeating = true })
+hl.bind(mainMod .. " + ALT + L", hl.dsp.window.resize({ x = step,  y = 0, relative = true }),{ repeating = true })
+hl.bind(mainMod .. " + ALT + K", hl.dsp.window.resize({ x = 0, y = -step, relative = true }),{ repeating = true })
+hl.bind(mainMod .. " + ALT + J", hl.dsp.window.resize({ x = 0, y = step,  relative = true }),{ repeating = true })
 
 -- move focus window in direction
 hl.bind(mainMod .. " + SHIFT + H",  hl.dsp.window.move({ direction = "left" }))
@@ -309,6 +309,20 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
+-- Switch workspace cycle
+hl.bind(
+  mainMod .. " + TAB",
+  hl.dsp.focus({
+    workspace = "e+1"
+  })
+)
+
+hl.bind(
+  mainMod .. " + SHIFT + TAB",
+  hl.dsp.focus({
+    workspace = "e-1"
+  })
+)
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))

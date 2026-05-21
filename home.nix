@@ -77,13 +77,24 @@ in
   programs.zsh = {
     enable = true;
 
+    oh-my-zsh = {
+      enable = true;
+
+      theme = "agnoster";
+
+      plugins = [
+        "git"
+        "sudo"
+        "fzf"
+      ];
+    };
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#rdwp";
     };
 
-    initContent = ''
-      PROMPT='%F{#8CAAEE}%n%F{#737994}@%F{#8CAAEE}%m%f %F{#CA9EE6}%~%f %F{#A6D189}>%f '
-    '';
+    # initContent = ''
+    #   PROMPT='%F{#8CAAEE}%n%F{#737994}@%F{#8CAAEE}%m%f %F{#CA9EE6}%~%f %F{#A6D189}>%f '
+    # '';
     #profileExtra = ''
     #  if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
     #    if uwsm check may-start;then
