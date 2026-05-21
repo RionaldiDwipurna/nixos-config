@@ -270,10 +270,7 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(
   mainMod .. " + SHIFT + R",
-  function ()
-    hl.exec_cmd("pkill -x waybar")
-    hl.exec_cmd("waybar")
-  end
+  hl.dsp.exec_cmd("pkill waybar; nohup waybar >/dev/null 2>&1 &")
 )
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
