@@ -59,3 +59,7 @@ CTRL + o =  jump prev
 
 CTRL + H J K L = move to left/lower/up/right split
 SHIFT + H L = left/right opened tab
+p
+SUPER + g + ... = open git
+SUPER + s + k = keymaps nvim
+SUPER + f + t = terminal inside nvim
