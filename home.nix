@@ -57,6 +57,9 @@ in
     # wallpaper
     awww
 
+    # process viewer
+    btop
+    nvtopPackages.nvidia #nvidia only
   ];
   programs.git = {
     enable = true;
