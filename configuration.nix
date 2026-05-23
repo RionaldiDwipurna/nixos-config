@@ -99,7 +99,7 @@
     #gaming related
     mangohud
     protonup-qt
-    # lutris
+    lutris
     # bottles
     heroic # for epic/gog
 
