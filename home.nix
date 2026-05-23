@@ -61,6 +61,8 @@ in
     # process viewer
     btop
     nvtopPackages.nvidia #nvidia only
+
+    qbittorrent
   ];
   programs.git = {
     enable = true;

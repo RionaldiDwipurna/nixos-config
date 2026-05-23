@@ -101,7 +101,7 @@
     protonup-qt
     # lutris
     # bottles
-    # heroic # for epic/gog
+    heroic # for epic/gog
 
     # debugging tools for graphics
     vulkan-tools
