@@ -108,6 +108,16 @@
     mesa-demos
   ];
 
+  # workaround for installing lutris and bottles on unstable branch
+  # bypass failing test on openldap
+  nixpkgs.overlays = [
+      (final: prev: {
+        openldap = prev.openldap.overrideAttrs (oldAttrs: {
+          doCheck = false;
+        });
+      })
+  ];
+
   fonts.packages = with pkgs; [
     font-awesome
     nerd-fonts.symbols-only
