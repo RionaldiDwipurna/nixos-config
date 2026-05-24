@@ -48,6 +48,8 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("awww-daemon")
   hl.exec_cmd("awww img ~/dotfiles/assets/pictures/bluewall1.jpg")
   hl.exec_cmd("swaync")
+  hl.exec_cmd("wl-paste --type text --watch cliphist store")
+  hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
 
 
@@ -347,6 +349,11 @@ hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 
+-- 1. Selected Region: Press SUPER + SHIFT + P to select an area and copy to clipboard
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+
+-- 2. Save Region to File: SUPER + SHIFT + C saves the region directly to your Pictures folder
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd('grim -g "$(slurp)" ~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).png'))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
