@@ -44,7 +44,12 @@ SUPER + SHIFT + TAB = focus workspace cycled backward
 SUPER + 1 to 9 = change/new workspace
 SUPER + J = change split layout
 SUPER + S = toggle special workspace (overlay)
+SUPER SHIFT + S = move to special workspace (overlay)
 
+
+screenshot
+SUPER + SHIFT + P = snipping tool (clipboard)
+SUPER + SHIFT + C = save screenshot to ~/Pictures/
 
 nvim
 
