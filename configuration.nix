@@ -190,7 +190,14 @@
     memoryPercent = 100;
     priority = 100;
   };
+  # nix garbage collector
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
 
+nix.optimise.automatic = true;
   # for sleep
   services.hypridle.enable = true;
   # Some programs need SUID wrappers, can be configured further or are

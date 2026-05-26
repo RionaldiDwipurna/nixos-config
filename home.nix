@@ -92,6 +92,7 @@ in
     };
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#rdwp";
+      nfu = "cd ~/dotfiles && nix flake update";
     };
 
     # initContent = ''
