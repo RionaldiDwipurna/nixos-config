@@ -196,8 +196,11 @@
     dates = "weekly";
     options = "--delete-older-than 14d";
   };
-
-nix.optimise.automatic = true;
+  security.sudo.extraConfig = # sh
+  ''
+    Defaults pwfeedback # Make typed password visible as asterisks
+  '';
+  nix.settings.auto-optimise-store = true;
   # for sleep
   services.hypridle.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
