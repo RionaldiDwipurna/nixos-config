@@ -217,6 +217,10 @@
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
 
+  services.tailscale = {
+    enable = true;
+    # Enable tailscale at startup
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
