@@ -70,7 +70,11 @@ in
     })
 
 
+    blueman
   ];
+
+  programs.vesktop.enable = true;
+
   programs.git = {
     enable = true;
     settings = {

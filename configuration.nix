@@ -62,7 +62,7 @@
   users.users.rdwp = {
     isNormalUser = true;
     description = "rdwp";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "bluetooth"];
     packages = with pkgs; [];
   };
 
@@ -210,7 +210,16 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
