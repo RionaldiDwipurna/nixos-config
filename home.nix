@@ -63,6 +63,13 @@ in
     nvtopPackages.nvidia #nvidia only
 
     qbittorrent
+    (prismlauncher.override {
+      jdks = [
+        temurin-bin-17 # Perfectly matches your friend's Minecraft 1.20.1 server
+      ];
+    })
+
+
   ];
   programs.git = {
     enable = true;
