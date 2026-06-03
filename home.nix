@@ -70,7 +70,12 @@ in
     })
 
 
+    # bluetooth
     blueman
+
+    # local llm
+    (llama-cpp.override { cudaSupport = true; })
+
   ];
 
   programs.vesktop.enable = true;
