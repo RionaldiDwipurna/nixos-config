@@ -220,6 +220,11 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  # for external hdd
+  boot.supportedFilesystems = [ "ntfs" ];
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

@@ -82,6 +82,10 @@ in
 
   programs.vesktop.enable = true;
 
+  programs.opencode = {
+    enable = true;
+  };
+
   programs.git = {
     enable = true;
     settings = {
