@@ -76,6 +76,8 @@ in
     # local llm
     (llama-cpp.override { cudaSupport = true; })
 
+    google-chrome
+
   ];
 
   programs.vesktop.enable = true;
