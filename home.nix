@@ -179,6 +179,7 @@ in
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#rdwp";
       nfu = "cd ~/dotfiles && nix flake update";
       oc  = "opencode --port --continue";
+      re  = "source ~/.zshrc";
     };
 
     # initContent = ''
