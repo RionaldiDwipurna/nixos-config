@@ -122,8 +122,24 @@ in
       setw -g pane-base-index 1
       set -g renumber-windows on
       set -g history-limit 10000
+
+      # === Copy mode: use vi-style keys (h/j/k/l, v to select, y to yank) ===
+      setw -g mode-keys vi
+
       bind h split-window -h -c "#{pane_current_path}"
       bind v split-window -v -c "#{pane_current_path}"
+
+      # === Resize panes (vim-style: Ctrl+B, Ctrl+h/j/k/l) ===
+      bind -r -T prefix C-h resize-pane -L
+      bind -r -T prefix C-j resize-pane -D
+      bind -r -T prefix C-k resize-pane -U
+      bind -r -T prefix C-l resize-pane -R
+
+      # === Resize panes (bigger step: Ctrl+B, Alt+h/j/k/l) ===
+      bind -r -T prefix M-h resize-pane -L 10
+      bind -r -T prefix M-j resize-pane -D 10
+      bind -r -T prefix M-k resize-pane -U 10
+      bind -r -T prefix M-l resize-pane -R 10
     '';
   };
 

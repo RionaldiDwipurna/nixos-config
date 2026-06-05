@@ -58,11 +58,22 @@ prefix, }          = swap with next pane
 prefix, q          = briefly show pane numbers (press number to jump)
 prefix, !          = break pane out into its own window
 
-copy mode (scrollback + select)
-prefix, [          = enter copy mode (use vim motions: g, G, /, ?, h/j/k/l, w, b, etc.)
+resize (with prefix held, vim-style: HJKL directions)
+Ctrl+B, Ctrl+h     = resize left  by 1  (hold to repeat)
+Ctrl+B, Ctrl+j     = resize down  by 1
+Ctrl+B, Ctrl+k     = resize up    by 1
+Ctrl+B, Ctrl+l     = resize right by 1
+Ctrl+B, Alt+h      = resize left  by 10
+Ctrl+B, Alt+j      = resize down  by 10
+Ctrl+B, Alt+k      = resize up    by 10
+Ctrl+B, Alt+l      = resize right by 10
+Ctrl+B, z          = zoom current pane to fullscreen (toggle)
+
+copy mode (vim-style: HJKL move, v to select, y to yank, / to search)
+prefix, [          = enter copy mode
 prefix, ]          = paste from tmux buffer
-y                  = (in copy mode) copy selection to system clipboard (yank plugin)
-q                  = (in copy mode) quit
+y                  = yank selection to system clipboard (yank plugin)
+q                  = quit copy mode
 
 vim-tmux-navigator (works WITHOUT prefix)
 Ctrl+H             = focus pane on the left  (in nvim: focus split on the left)
