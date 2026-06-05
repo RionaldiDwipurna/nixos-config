@@ -80,6 +80,53 @@ in
 
   ];
 
+  programs.tmux = {
+    enable = true;
+    plugins = with pkgs; [
+      tmuxPlugins.resurrect
+      tmuxPlugins.continuum
+      tmuxPlugins.yank
+    ];
+    extraConfig = ''
+      # === Terminal / colors (preserves Catppuccin + truecolor in nvim) ===
+      set -g default-terminal "tmux-256color"
+      set -ag terminal-overrides ",xterm-256color:RGB"
+      set -ga terminal-features ",xterm-256color:RGB"
+      set -as terminal-features ',xterm-256color:clipboard'
+      set -g set-clipboard on
+      set -g mouse on
+
+      # === Prefix stays Ctrl+B (no conflict with current binds) ===
+      # To swap to Ctrl+A, uncomment:
+      # set -g prefix C-a | unbind C-b | bind C-a send-prefix
+
+      # === Reload config ===
+      bind r source-file ~/.config/tmux/tmux.conf \; display "reloaded!"
+
+      # === vim-tmux-navigator ===
+      # Ctrl+H/J/K/L moves between tmux panes AND nvim splits seamlessly
+      is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -qE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+      bind -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
+      bind -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
+      bind -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
+      bind -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
+
+      # === Session persistence (resurrect + continuum) ===
+      set -g @resurrect-capture-pane-contents 'on'
+      set -g @continuum-save-interval '15'
+      set -g @continuum-restore 'on'
+      set -g @continuum-boot 'on'
+
+      # === Quality of life ===
+      set -g base-index 1
+      setw -g pane-base-index 1
+      set -g renumber-windows on
+      set -g history-limit 10000
+      bind h split-window -h -c "#{pane_current_path}"
+      bind v split-window -v -c "#{pane_current_path}"
+    '';
+  };
+
   programs.vesktop.enable = true;
 
   programs.opencode = {

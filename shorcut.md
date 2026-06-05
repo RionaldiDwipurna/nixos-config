@@ -26,9 +26,66 @@ shortcut
 nrs = sudo nix rebuild switch --flake 
 
 
+tmux (default prefix: Ctrl+B)
+
+session (tmux server keeps running when you close kitty)
+prefix, d          = detach from current session (session survives)
+prefix, s          = list + switch sessions interactively
+prefix, $          = rename current session
+prefix, (          = switch to previous session
+prefix, )          = switch to next session
+prefix, L          = jump to last session
+
+window (one per "tab" in tmux)
+prefix, c          = create new window
+prefix, ,          = rename current window
+prefix, &          = kill current window
+prefix, n          = next window
+prefix, p          = previous window
+prefix, 0-9        = select window by number
+prefix, w          = list all windows (tree view)
+prefix, f          = find a window by name
+
+pane (split inside a window)
+prefix, h          = split vertical (left/right panes) — vim axis
+prefix, v          = split horizontal (top/bottom panes) — vim axis
+prefix, x          = kill current pane
+prefix, z          = toggle pane fullscreen (zoom)
+prefix, o          = cycle through panes
+prefix, ;          = jump to last-active pane
+prefix, {          = swap with previous pane
+prefix, }          = swap with next pane
+prefix, q          = briefly show pane numbers (press number to jump)
+prefix, !          = break pane out into its own window
+
+copy mode (scrollback + select)
+prefix, [          = enter copy mode (use vim motions: g, G, /, ?, h/j/k/l, w, b, etc.)
+prefix, ]          = paste from tmux buffer
+y                  = (in copy mode) copy selection to system clipboard (yank plugin)
+q                  = (in copy mode) quit
+
+vim-tmux-navigator (works WITHOUT prefix)
+Ctrl+H             = focus pane on the left  (in nvim: focus split on the left)
+Ctrl+J             = focus pane below         (in nvim: focus split below)
+Ctrl+K             = focus pane above         (in nvim: focus split above)
+Ctrl+L             = focus pane on the right  (in nvim: focus split on the right)
+Ctrl+\             = jump to last-active tmux pane (works only from nvim)
+
+resurrect + continuum (session persistence)
+prefix, Ctrl+s     = manually save session state to disk
+prefix, Ctrl+r     = manually restore last saved state
+(auto: saves every 15 min, restores on next tmux start)
+
+misc
+prefix, r          = reload ~/.config/tmux/tmux.conf
+prefix, t          = big clock
+prefix, ?          = list all key bindings
+
+
 hyprland related:
 
-SUPER + Enter (return) = new terminal
+SUPER + Enter (return) = new terminal (attaches to tmux `main` — persistent, surviving closes)
+SUPER + SHIFT + Enter = new independent terminal (fresh tmux session, no mirroring)
 SUPER + Q = close focused window
 SUPER + M = Close hyprland
 SUPER + SHIFT + R = Restart waybar

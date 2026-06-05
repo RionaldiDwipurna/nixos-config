@@ -28,9 +28,10 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal    = "kitty"
-local fileManager = "thunar"
-local menu        = "rofi -show drun"
+local terminal       = "kitty -e tmux new-session -A -s main"
+local terminalFresh  = "kitty -e tmux new-session"
+local fileManager    = "thunar"
+local menu           = "rofi -show drun"
 
 
 -------------------
@@ -264,6 +265,7 @@ local step = 20
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd(terminalFresh))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
