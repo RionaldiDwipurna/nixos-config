@@ -130,6 +130,9 @@ gi = jump implementation
 gr = jump references
 CTRL + i =  jump next
 CTRL + o =  jump prev
+gs = flash vim
+gS = flash vim
+leader sk = see keymaps
 
 
 CTRL + H J K L = move to left/lower/up/right split
@@ -144,5 +147,31 @@ nvim (opencode integration):
 <Space>ot = toggle opencode terminal
 <Space>oa = ask opencode about current line/selection (sends @this)
 <Space>oo = opencode action picker
+
+model selection (inside opencode TUI):
+  Tab        = cycle model / provider
+  /model     = open model picker
+  shows entries like: openrouter/anthropic/claude-sonnet-latest  (cloud)
+                       llama.cpp / Gemma 4 12B QAT Q4_0 (local)   (needs llama-server running)
+
+local LLM (llama-server + llama.cpp + opencode):
+  llm-models live in ~/llm-models/*.gguf
+  llama-start   = start llama-server in background, log -> ~/.llama-server.log
+  llama-stop    = kill the server
+  llama-status  = query the /v1/models endpoint (also reveals if server is up)
+  full command: llama-server -m ~/llm-models/gemma-4-12b-it-qat-q4_0.gguf \
+                  --port 8080 -ngl 99 -c 32768
+    -m  = model path
+    --port 8080 = OpenAI-compatible API on http://127.0.0.1:8080/v1
+    -ngl 99 = offload all layers to GPU
+    -c 32768 = context window size (32K tokens; matches opencode.jsonc limit.context)
+  opencode provider: defined in ~/dotfiles/config/opencode/opencode.jsonc
+  model limits (opencode.jsonc): context=32768, output=8192
+    context = total window ceiling (prompt + history + reply)
+    output  = max tokens the model can emit in one reply
+    prompt side is capped at context - output = 24576 tokens before compaction
+  to use: opencode -> Tab or /model -> pick "llama.cpp / Gemma 4 12B QAT Q4_0 (local)"
+  trade-off: free + private + offline, but ~12B Q4_0 is weaker at tool calling
+             than Claude/GPT; keep cloud default for hard agentic work
 
 :LazyExtras for marketplace
