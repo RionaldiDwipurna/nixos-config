@@ -24,6 +24,8 @@ gst = git status
 
 shortcut
 nrs = sudo nix rebuild switch --flake 
+nfu = nix flake update
+oc  = opencode --port --continue (exposes server for nvim integration; auto-resumes last session)
 
 
 tmux (default prefix: Ctrl+B)
@@ -136,3 +138,11 @@ p
 SUPER + g + ... = open git
 SUPER + s + k = keymaps nvim
 SUPER + f + t = terminal inside nvim
+
+
+nvim (opencode integration):
+<Space>ot = toggle opencode terminal
+<Space>oa = ask opencode about current line/selection (sends @this)
+<Space>oo = opencode action picker
+
+:LazyExtras for marketplace
