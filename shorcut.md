@@ -59,15 +59,15 @@ prefix, q          = briefly show pane numbers (press number to jump)
 prefix, !          = break pane out into its own window
 
 resize (with prefix held, vim-style: HJKL directions)
-Ctrl+B, Ctrl+h     = resize left  by 1  (hold to repeat)
-Ctrl+B, Ctrl+j     = resize down  by 1
-Ctrl+B, Ctrl+k     = resize up    by 1
-Ctrl+B, Ctrl+l     = resize right by 1
-Ctrl+B, Alt+h      = resize left  by 10
-Ctrl+B, Alt+j      = resize down  by 10
-Ctrl+B, Alt+k      = resize up    by 10
-Ctrl+B, Alt+l      = resize right by 10
-Ctrl+B, z          = zoom current pane to fullscreen (toggle)
+prefix, Ctrl+h     = resize left  by 1  (hold to repeat)
+prefix, Ctrl+j     = resize down  by 1
+prefix, Ctrl+k     = resize up    by 1
+prefix, Ctrl+l     = resize right by 1
+prefix, Alt+h      = resize left  by 10
+prefix, Alt+j      = resize down  by 10
+prefix, Alt+k      = resize up    by 10
+prefix, Alt+l      = resize right by 10
+prefix, z          = zoom current pane to fullscreen (toggle)
 
 copy mode (vim-style: HJKL move, v to select, y to yank, / to search)
 prefix, [          = enter copy mode
