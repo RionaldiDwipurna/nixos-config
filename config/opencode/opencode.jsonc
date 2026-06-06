@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugin": ["oc-tps@latest"],
   "provider": {
     "llama.cpp": {
       "npm": "@ai-sdk/openai-compatible",

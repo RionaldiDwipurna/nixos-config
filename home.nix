@@ -56,6 +56,7 @@ in
     curl
     tree-sitter
     lsof   # required by nickjvandyke/opencode.nvim for server auto-discovery
+    nixd   # Nix language server (used by nvim via lua/plugins/lsp-nix.lua)
 
     # wallpaper
     awww
