@@ -186,6 +186,8 @@
 | `Space o a` | ask opencode about current line/selection (sends `@this`) need opencode running (in terminal or tmux by running 'oc')|
 | `Space o o` | opencode action picker |
 
+note: don't forget to install the TPS meter plugins for opencode, you need to install it using opencode plugins oc-tps@latestt or just use npm install inside the plugins folder
+
 ### Model selection (inside opencode TUI)
 
 | Key | Action |
