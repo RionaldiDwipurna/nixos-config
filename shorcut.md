@@ -31,7 +31,7 @@
 | `nrs` | `sudo nixos-rebuild switch --flake ~/dotfiles#rdwp` |
 | `nfu` | `nix flake update` |
 | `oc` | `opencode --port --continue` — exposes server for nvim integration; auto-resumes last session |
-| `re` | `source ~/.zshrc` |
+| `re` | `exec zsh` — replace current shell (picks up new home-manager aliases, env vars, PATH, completions) |
 | `llama-start` | start `llama-server` in background, log → `~/.llama-server.log` |
 | `llama-stop` | kill the server |
 | `llama-status` | query `/v1/models` (also reports if server is up) |
@@ -205,7 +205,7 @@ Models live in `~/llm-models/*.gguf`.
 Full command:
 
 ```sh
-llama-server -m ~/llm-models/gemma-4-12b-it-qat-q4_0.gguf --port 8080 -ngl 99 -c 32768
+llama-server -m ~/llm-models/gemma-4-12b-it-qat-q4_0.gguf --port 8080 -ngl 99 -c 32768 -fa on --no-mmap -np 1 --cache-ram 0
 ```
 
 | Flag | Meaning |
@@ -214,6 +214,10 @@ llama-server -m ~/llm-models/gemma-4-12b-it-qat-q4_0.gguf --port 8080 -ngl 99 -c
 | `--port 8080` | OpenAI-compatible API on `http://127.0.0.1:8080/v1` |
 | `-ngl 99` | offload all layers to GPU |
 | `-c 32768` | context window size (32K tokens; matches `opencode.jsonc limit.context`) |
+| `-fa on` | flash attention — exact attention, faster + lower peak compute memory (value: `on` / `off` / `auto`) |
+| `--no-mmap` | read entire model into RAM at startup (no `mmap`); pinned, non-evictable; eliminates disk re-reads from page cache |
+| `-np 1` | force `n_parallel = 1` (single concurrent request); saves ~2–3 GB of reserved KV cache (server's `auto` would use 4) |
+| `--cache-ram 0` | disable the prompt cache (server's default is 8192 MiB); saves ~4 GB+ of RAM that the cache was consuming, and eliminates the slow partial-reuse path that caused the 50s prefill freeze |
 
 **opencode provider** is defined in `~/dotfiles/config/opencode/opencode.jsonc`. Model limits:
 
