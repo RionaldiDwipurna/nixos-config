@@ -231,6 +231,8 @@ llama-server -m ~/llm-models/gemma-4-12b-it-qat-q4_0.gguf --port 8080 -ngl 99 -c
 
 **Trade-off:** free + private + offline, but a 12B Q4_0 model is weaker at tool calling than Claude/GPT — keep cloud default for hard agentic work.
 
+note: Can setup the --ctx-checkpoints n (default 32), to reduce the ram usage
+
 ## LazyVim
 
 `:LazyExtras` for marketplace.
