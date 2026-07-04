@@ -140,7 +140,7 @@
     powerManagement.enable = true;
     powerManagement.finegrained = false;
     open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
   # steam/gaming related
