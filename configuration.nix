@@ -106,6 +106,9 @@
     # debugging tools for graphics
     vulkan-tools
     mesa-demos
+
+    # verify wake-on-lan support (ethtool enp7s0 | grep -i wake)
+    ethtool
   ];
 
   # workaround for installing lutris and bottles on unstable branch
@@ -236,6 +239,17 @@
     enable = true;
     # Enable tailscale at startup
   };
+
+  # Wake-on-LAN: wired NIC wakes on magic packet sent from the LAN
+  # (rdwp <-> switch <-> Proxmox relay; this traffic never crosses the router)
+  networking.interfaces.enp7s0.wakeOnLan = {
+    enable = true;
+    policy = [ "magic" ];
+  };
+
+  # SSH into this machine from the laptop over tailscale0.
+  networking.firewall.checkReversePath = "loose"; # tailnet routes come via 100.64/10; strict rpfilter drops them
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 22 ];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
