@@ -183,7 +183,7 @@
 | Key | Action |
 | --- | --- |
 | `Space o t` | toggle opencode terminal |
-| `Space o a` | ask opencode about current line/selection (sends `@this`) need opencode running (in terminal or tmux by running 'oc')|
+| `Space o a` | ask opencode about current line/selection (sends `@this`) need opencode running (in terminal or tmux by running 'oc') |
 | `Space o o` | opencode action picker |
 
 note: don't forget to install the TPS meter plugins for opencode, you need to install it using opencode plugins oc-tps@latestt or just use npm install inside the plugins folder
@@ -236,3 +236,7 @@ note: Can setup the --ctx-checkpoints n (default 32), to reduce the ram usage
 ## LazyVim
 
 `:LazyExtras` for marketplace.
+
+## nix develop
+
+use "nix develop -c zsh" for using zsh instead of bash
