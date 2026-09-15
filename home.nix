@@ -58,6 +58,13 @@ in
     lsof   # required by nickjvandyke/opencode.nvim for server auto-discovery
     nixd   # Nix language server (used by nvim via lua/plugins/lsp-nix.lua)
 
+    # C++ editor support (compilers/build systems stay per-project via `nix develop`)
+    clang-tools # clangd LSP + clang-format (LazyVim lang.clangd extra)
+    neocmakelsp # neocmake LSP (LazyVim lang.cmake extra)
+    lldb # lldb-dap debugger backend
+    (vscode-extensions.vadimcn.vscode-lldb) # codelldb adapter (LazyVim DAP expects `codelldb` in PATH)
+    marksman # markdown LSP, Mason binary can't run on NixOS (LazyVim lang.markdown extra)
+
     # wallpaper
     awww
 
