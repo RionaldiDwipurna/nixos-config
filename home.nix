@@ -84,7 +84,7 @@ in
     blueman
 
     # local llm
-    (llama-cpp.override { cudaSupport = true; })
+    # (llama-cpp.override { cudaSupport = true; })
 
     google-chrome
 
