@@ -63,6 +63,11 @@ in
     neocmakelsp # neocmake LSP (LazyVim lang.cmake extra)
     lldb # lldb-dap debugger backend
     (vscode-extensions.vadimcn.vscode-lldb) # codelldb adapter (LazyVim DAP expects `codelldb` in PATH)
+    # Expose the bundled codelldb adapter on PATH (the vscode extension
+    # package does not link bin/codelldb itself).
+    (writeShellScriptBin "codelldb" ''
+      exec ${vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb "$@"
+    '')
     marksman # markdown LSP, Mason binary can't run on NixOS (LazyVim lang.markdown extra)
 
     # wallpaper
@@ -190,6 +195,9 @@ in
       nfu = "cd ~/dotfiles && nix flake update";
       oc  = "opencode --port --continue";
       re  = "exec zsh";
+      sdn = "shutdown now";
+      rbt = "reboot";
+      slp = "systemctl suspend";
       llama-start = "nohup llama-server -m ~/llm-models/gemma-4-12b-it-qat-q4_0.gguf --port 8080 -ngl 99 -c 32768 -fa on --no-mmap -np 1 --cache-ram 0 >~/.llama-server.log 2>&1 &; echo \"llama-server PID: $!\"";
       llama-stop  = "pkill -f llama-server && echo \"llama-server stopped\"";
       llama-status = "curl -s http://localhost:8080/v1/models 2>/dev/null | jq -r '.data[].id' 2>/dev/null || echo \"llama-server not running on :8080\"";

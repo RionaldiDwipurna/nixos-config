@@ -14,6 +14,17 @@ return {
     end,
   },
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = {
+      -- Never download DAP adapters via Mason on NixOS: dynamically linked
+      -- Mason binaries fail with stub-ld (exit 127). Adapters come from Nix
+      -- (system-wide codelldb wrapper + lldb in home.nix).
+      automatic_installation = false,
+      ensure_installed = {},
+      handlers = {},
+    },
+  },
+  {
     "nvim-lspconfig",
     opts = {
       servers = {

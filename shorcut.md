@@ -171,6 +171,7 @@
 | `gs` | flash vim |
 | `gS` | flash vim |
 | `leader sk` | see keymaps |
+| `leader cd` | see diagnostic |
 | `Ctrl + H/J/K/L` | move to left/lower/up/right split |
 | `Shift + H/L` | left/right opened tab |
 | `p` | (placeholder — original entry) |
