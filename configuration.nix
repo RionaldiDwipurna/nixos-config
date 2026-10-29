@@ -27,6 +27,19 @@
   # Enable networking
   hardware.enableAllFirmware = true;
   networking.networkmanager.enable = true;
+  networking.networkmanager.ensureProfiles.profiles."Wired connection 1" = {
+    connection = {
+      id = "Wired connection 1";
+      type = "ethernet";
+      autoconnect = true;
+    };
+    ipv4 = {
+      method = "auto";
+      ignore-auto-dns = true;
+      dns = "1.1.1.1;8.8.8.8;";   # keyfile format wants semicolon-separated
+    };
+    ipv6 = { method = "auto"; };
+  };
   services.resolved = {
     enable = true;
   
