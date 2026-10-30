@@ -193,7 +193,7 @@ in
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#rdwp";
       nfu = "cd ~/dotfiles && nix flake update";
-      oc  = "opencode --port --continue";
+      oc  = "opencode --continue";
       re  = "exec zsh";
       sdn = "shutdown now";
       rbt = "reboot";

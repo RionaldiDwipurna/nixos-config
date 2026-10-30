@@ -1,11 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["oc-tps@latest"],
-  "provider": {
+  "providers": {
     "llama.cpp": {
-      "npm": "@ai-sdk/openai-compatible",
+      "package": "aisdk:@ai-sdk/openai-compatible",
       "name": "llama-server (local)",
-      "options": {
+      "settings": {
         "baseURL": "http://127.0.0.1:8080/v1"
       },
       "models": {

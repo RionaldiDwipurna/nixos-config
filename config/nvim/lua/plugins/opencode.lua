@@ -1,6 +1,5 @@
 return {
   "nickjvandyke/opencode.nvim",
-  version = "*",
   dependencies = {
     {
       "folke/snacks.nvim",
